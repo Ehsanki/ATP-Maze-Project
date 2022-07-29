@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import View.*?>
+
+<BorderPane onMouseClicked="#mouseClicked" prefHeight="408.0" prefWidth="594.0" stylesheets="@MainStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
+    <left>
+        <VBox id="OptionsWindowStyle" prefHeight="200.0" prefWidth="178.0" spacing="5.0" BorderPane.alignment="CENTER">
+            <children>
+            <Label id="SETTINGTEXT" alignment="CENTER" prefHeight="30.0" prefWidth="159.0" text="Settings" textAlignment="CENTER" textFill="#275a8d" textOverrun="WORD_ELLIPSIS" underline="true">
+               <font>
+                  <Font name="Guttman Vilna Bold" size="22.0" />
+               </font>
+            </Label>
+                <GridPane prefWidth="168.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <Label id="mazeCoordinationText" text="Maze rows:" />
+                    <Label id="mazeCoordinationText" text="Maze columns:" GridPane.rowIndex="1" />
+
+                    <TextField fx:id="textField_mazeRows" text="10" GridPane.columnIndex="1" />
+                    <TextField fx:id="textField_mazeColumns" text="10" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Button onAction="#generateMaze" prefHeight="25.0" prefWidth="167.0" text="Generate Maze" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                    <Button fx:id="solve_BTN" cancelButton="true" disable="true" onAction="#solveMaze" prefHeight="25.0" prefWidth="167.0" style="-fx-background-color: #ce950c;" text="Solve Maze" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                    <Label id="SETTINGTEXT" text="Player Row = " GridPane.rowIndex="4" />
+                    <Label id="SETTINGTEXT" text="Player Col = " GridPane.rowIndex="5" />
+                    <Label id="SETTINGTEXT" fx:id="playerRow" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                    <Label id="SETTINGTEXT" fx:id="playerCol" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+                </GridPane>
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </VBox>
+    </left>
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <MenuBar id="menuBar" style="-fx-background-color:#f5bd36;   -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em; -fx-background-insets: 0, 1, 2;     -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#generateMaze" text="New" />
+                                <MenuItem mnemonicParsing="false" onAction="#saveMaze" text="Save" />
+                        <MenuItem mnemonicParsing="false" onAction="#openFile" text="Load" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Options">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#openPropWindow" text="Properties" />
+                            </items>
+                        </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#openHelpWindow" text="Help" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="About">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#openAboutWindow" text="About" />
+                     </items>
+                  </Menu>
+                        <Menu mnemonicParsing="false" text="Exit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#ExitFunc" text="Exit" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <Pane fx:id="pane" BorderPane.alignment="CENTER">
+            <children>
+                <MazeDisplayer fx:id="mazeDisplayer" height="550.0" imageFileNameGoal="./resources/images/GoalP.png" imageFileNamePlayer="./resources/images/Truck.png" imageFileNameSol="./resources/images/Solution.png  " imageFileNameWall="./resources/images/wall.png" onKeyPressed="#keyPressed" onMouseDragged="#mouseDrag" onScroll="#mouseScrolling" width="500.0" />
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+         <BorderPane.margin>
+            <Insets left="2.0" />
+         </BorderPane.margin>
+        </Pane>
+    </center>
+</BorderPane>
