@@ -3,10 +3,7 @@ Maze Game
 
 Simple  Maze Game using Java And Javafx 
 
-```html
-  
-   <h3 style="color:blue;">  </h3>
-```
+
 <b><h3>Methods Brief</h3></b>
 
   1- Empty Maze Generator - Generates A maze without wall
@@ -24,9 +21,9 @@ Simple  Maze Game using Java And Javafx
   3- BEST FIRST SEARCH ( BFS USING PRIORITY QUEUE )
 
 
-Enjoy!
+Enjoy!<br>
 Few ScreenShots!
-
+<br>
 Main Menu
 ![Screenshot_35](https://user-images.githubusercontent.com/57157630/181798147-37dd0762-4d10-4c0d-a609-d1b444b5b665.png)
 
