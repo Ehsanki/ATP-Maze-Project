@@ -3,22 +3,25 @@ Maze Game
 
 Simple  Maze Game using Java And Javafx 
 
+```html
+  
+   <h3 style="color:blue;">  </h3>
+```
+<b><h3>Methods Brief</h3></b>
 
-<h3 style="color:blue;">Methods Brief</h3>
+  1- Empty Maze Generator - Generates A maze without wall
 
-1- Empty Maze Generator - Generates A maze without wall
+  2- Simple Maze Generator - Generates Simple Maze with simple Road
 
-2- Simple Maze Generator - Generates Simple Maze with simple Road
+  3- My Maze Generator - Generate Maze Using Prim's Algorithm
 
-3- My Maze Generator - Generate Maze Using Prim's Algorithm
+<b><h3>Solver - Using 2 Algortihms</h3></b>
 
-<b>Solver - Using 2 Algortihms</b>
+ 1- BFS
 
-1- BFS
+  2- DFS
 
-2- DFS
-
-3- BEST FIRST SEARCH ( BFS USING PRIORITY QUEUE )
+  3- BEST FIRST SEARCH ( BFS USING PRIORITY QUEUE )
 
 
 Enjoy!
